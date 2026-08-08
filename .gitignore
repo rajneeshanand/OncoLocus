@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Model checkpoints (too large for GitHub — 430–575 MB each)
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Raw and processed data (too large; re-generate or re-download)
+data/raw/
+data/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Word / Excel / PDF documents
+*.docx
+*.xlsx
+*.pdf
+*.zip
+
+# OS artifacts
+.DS_Store
+__MACOSX/
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs and temp
+*.log
+*.tmp
+*.cache
