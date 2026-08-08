@@ -10,11 +10,11 @@
 
 OncoLocus addresses two gaps left open by prior cancer NLP literature:
 
-**Gap 1 — No temporal modeling.**
+**Gap 1: No temporal modeling.**
 Every prior cancer NLP model reads one report in isolation. OncoLocus processes a patient's full sequence of reports in chronological order, encoding the actual number of days between visits using Continuous-Time Positional Encoding.
 
-**Gap 2 — No cross-cancer transfer.**
-No prior study tests whether a model trained on some cancer types can predict outcomes for entirely unseen cancer types. OncoLocus achieves an average AUROC of **0.923** on three cancer types (thyroid, sarcoma, lung squamous cell) it never saw during training — matching in-distribution performance.
+**Gap 2: No cross-cancer transfer.**
+No prior study tests whether a model trained on some cancer types can predict outcomes for entirely unseen cancer types. OncoLocus achieves an average AUROC of **0.923** on three cancer types (thyroid, sarcoma, lung squamous cell) it never saw during training, matching in-distribution performance.
 
 ---
 
@@ -46,7 +46,7 @@ Patient Reports (chronological sequence)
 
 ## Key Results
 
-### Experiment 1 — Temporal Modeling (Synthetic Sequential Data)
+### Experiment 1: Temporal Modeling (Synthetic Sequential Data)
 
 | Model | Val AUROC | Zero-Shot PANC AUROC | Zero-Shot PANC F1 |
 |---|---|---|---|
@@ -55,7 +55,7 @@ Patient Reports (chronological sequence)
 
 HTT outperforms the non-temporal baseline by **+6.13 AUROC points** on validation and **+4.55 points** on zero-shot pancreatic cancer transfer.
 
-### Experiment 2 — Cross-Cancer Transfer on Real Data (TCGA-Reports)
+### Experiment 2: Cross-Cancer Transfer on Real Data (TCGA-Reports)
 
 **In-distribution (11 cancer types seen during training):**
 
@@ -105,7 +105,7 @@ pip install -r requirements.txt
 python -m src.data.preprocess_tcga --csv data/raw/TCGA/TCGA_Reports.csv
 ```
 
-### Train HTT on synthetic sequential data (Experiment 1 — Gap 1)
+### Train HTT on synthetic sequential data (Experiment 1)
 ```bash
 python train.py --use_synthetic --epochs 10 --batch_size 8
 ```
@@ -115,7 +115,7 @@ python train.py --use_synthetic --epochs 10 --batch_size 8
 python train.py --use_synthetic --baseline --output_dir results/synthetic_baseline
 ```
 
-### Train HTT on TCGA real data (Experiment 2 — Gap 2)
+### Train HTT on TCGA real data (Experiment 2)
 ```bash
 python train_tcga.py \
     --gap2_held_out THCA LUSC SARC \
@@ -174,7 +174,7 @@ OncoLocus/
 | Component | Detail |
 |---|---|
 | Base encoder | BiomedBERT-base-uncased (Gu et al., 2021) |
-| Fine-tuning | LoRA (r=16, alpha=32) — 11.1% params trainable |
+| Fine-tuning | LoRA (r=16, alpha=32), 11.1% params trainable |
 | Temporal layers | 4 Transformer encoder layers, 8 heads |
 | Hidden dimension | 512 |
 | Time encoding | Sinusoidal over actual elapsed days (normalized to years) |
