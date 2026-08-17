@@ -1,0 +1,26 @@
+{
+  "tcga_csv": "data/raw/TCGA/TCGA_Reports.csv",
+  "processed_dir": "data/processed/tcga",
+  "reprocess": false,
+  "gap2_held_out": [
+    "THCA",
+    "LUSC",
+    "SARC"
+  ],
+  "encoder": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "hidden_dim": 512,
+  "n_layers": 4,
+  "n_heads": 8,
+  "lora_r": 16,
+  "no_lora": false,
+  "max_report_len": 128,
+  "epochs": 20,
+  "batch_size": 4,
+  "lr": 0.0002,
+  "grad_accum": 4,
+  "patience": 5,
+  "no_amp": false,
+  "baseline": true,
+  "output_dir": "results/tcga_baseline_full",
+  "seed": 42
+}
