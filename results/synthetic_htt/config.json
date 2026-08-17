@@ -1,0 +1,23 @@
+{
+  "use_synthetic": true,
+  "data_dir": "data/raw",
+  "n_patients": 100,
+  "gap2_held_out": "PANC",
+  "encoder_model": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+  "hidden_dim": 512,
+  "n_layers": 4,
+  "n_heads": 8,
+  "lora_r": 16,
+  "no_lora": false,
+  "max_seq_len": 10,
+  "max_report_len": 128,
+  "epochs": 10,
+  "batch_size": 4,
+  "lr": 0.0002,
+  "grad_accum": 4,
+  "patience": 5,
+  "no_amp": false,
+  "baseline": false,
+  "output_dir": "results/synthetic_htt",
+  "seed": 42
+}
